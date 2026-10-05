@@ -15,4 +15,5 @@ class AdminController
     {
         $this->admin->getDashboardStats();
     }
+    
 }

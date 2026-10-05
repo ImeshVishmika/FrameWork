@@ -7,7 +7,7 @@ class Route{
 
     public function __construct(String $path)
     {
-        $this->$path = $path;
+        $this->path = $path;
     }
 
 }

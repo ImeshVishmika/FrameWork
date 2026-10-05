@@ -1,4 +1,5 @@
 <?php
+
 require_once(BASE."/app/model/product.php");
 require_once(BASE."/app/mapping/Route.php");
 
