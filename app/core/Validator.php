@@ -6,13 +6,7 @@
  */
 class Validator
 {
-    /**
-     * Validate integer within range
-     * @param mixed $value The value to validate
-     * @param int $min Minimum allowed value
-     * @param int $max Maximum allowed value
-     * @return array ['valid' => bool, 'value' => int|null, 'error' => string|null]
-     */
+
     public static function validateInt($value, $min = null, $max = null)
     {
         $int = filter_var($value, FILTER_VALIDATE_INT);
@@ -32,13 +26,7 @@ class Validator
         return ['valid' => true, 'value' => $int, 'error' => null];
     }
 
-    /**
-     * Validate string length
-     * @param string $value The value to validate
-     * @param int $minLength Minimum length
-     * @param int $maxLength Maximum length
-     * @return array ['valid' => bool, 'value' => string|null, 'error' => string|null]
-     */
+
     public static function validateString($value, $minLength = 0, $maxLength = 255)
     {
         if (!is_string($value)) {
@@ -59,11 +47,7 @@ class Validator
         return ['valid' => true, 'value' => $trimmed, 'error' => null];
     }
 
-    /**
-     * Validate email address
-     * @param string $email The email to validate
-     * @return array ['valid' => bool, 'value' => string|null, 'error' => string|null]
-     */
+
     public static function validateEmail($email)
     {
         $email = trim($email);
@@ -85,13 +69,7 @@ class Validator
         return ['valid' => true, 'value' => $validated, 'error' => null];
     }
 
-    /**
-     * Validate value is in allowed list
-     * @param mixed $value The value to validate
-     * @param array $allowedValues Array of allowed values
-     * @param bool $strict Use strict comparison
-     * @return array ['valid' => bool, 'value' => mixed|null, 'error' => string|null]
-     */
+
     public static function validateInList($value, array $allowedValues, $strict = true)
     {
         if (in_array($value, $allowedValues, $strict)) {
@@ -101,11 +79,7 @@ class Validator
         return ['valid' => false, 'value' => null, 'error' => 'Invalid value. Allowed: ' . implode(', ', $allowedValues)];
     }
 
-    /**
-     * Validate mobile number (Sri Lankan format)
-     * @param string $mobile The mobile number to validate
-     * @return array ['valid' => bool, 'value' => string|null, 'error' => string|null]
-     */
+ 
     public static function validateMobile($mobile)
     {
         $mobile = trim($mobile);

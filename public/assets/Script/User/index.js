@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadPopularItems();
     loadNewItems();
+  
 });
 
 

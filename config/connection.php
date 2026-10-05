@@ -1,6 +1,6 @@
 <?php
 
-//require_once(__DIR__ . '/.env');
+// require_once(__DIR__ . '/.env');
 
 class Database{
 
@@ -24,12 +24,20 @@ class Database{
         if(!isset(self::$connection)){
             $config = self::getConfig();
             
-            self::$connection = new mysqli(
-                $config['host'],
-                $config['user'],
-                $config['pass'],
-                $config['name'],
-                $config['port']
+            // self::$connection = new mysqli(
+            //     $config['host'],
+            //     $config['user'],
+            //     $config['pass'],
+            //     $config['name'],
+            //     $config['port']
+            // );
+
+             self::$connection = new mysqli(
+                "localhost",
+                "root",
+                "Imesh#14681",
+                "timestore",
+                3306
             );
             
             // Check connection

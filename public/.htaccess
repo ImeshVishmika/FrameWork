@@ -1,12 +1,15 @@
 <IfModule mod_rewrite.c>
-
     RewriteEngine On
+    
+    # Set the base URL path for the alias
+    RewriteBase /timestore/
 
+    # Ignore existing files and directories
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !^/favicon.ico$
     RewriteCond %{REQUEST_FILENAME} !^/robots.txt$
 
-    RewriteRule ^ index.php [QSA,L]
-
+    # Send all other requests to index.php
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 </IfModule>

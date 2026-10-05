@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeStore | Home</title>
     <link rel="stylesheet" href="assets\style\style.css">
-    <link rel="stylesheet" href="assets\style\bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
@@ -28,7 +28,7 @@
 <body class="bg-light">
 
 
-    <?php include "header.php"; ?>
+    <?php include "header.php";?>
 
     <div class="container my-4">
         <div class="bg-black text-white rounded-4 p-5 overflow-hidden position-relative">
@@ -163,7 +163,6 @@
     </div>
 
     <?php include "footer.php"; ?>
-
     <script src="assets/Script/User/index.js"></script>
 
 </body>
