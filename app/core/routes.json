@@ -1,14 +1,74 @@
 {
-    "/api/model/load": "D:\\Desktop\\timestore/app/controllers\\Api\\ModelController.php",
-    "/api/product/add": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php",
-    "/api/product/update": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php",
-    "/api/product/load": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php",
-    "/Img": "D:\\Desktop\\timestore/app/controllers\\Web\\ImgController.php",
-    "/": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/logIn": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/ViewProduct": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/Profile": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/Checkout": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/Search": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-    "/InvalidUrl": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    "/api/model/load": {
+        "class": "ModelController",
+        "method": "loadModels",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ModelController.php"
+    },
+    "/api/product/add": {
+        "class": "ProductController",
+        "method": "addProduct",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+    },
+    "/api/product/update": {
+        "class": "ProductController",
+        "method": "updateProduct",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+    },
+    "/api/product/load": {
+        "class": "ProductController",
+        "method": "loadProducts",
+        "httpMethod": "POST",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+    },
+    "/Img": {
+        "class": "ImgController",
+        "method": "loadImg",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\ImgController.php"
+    },
+    "/": {
+        "class": "UserPageController",
+        "method": "index",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/logIn": {
+        "class": "UserPageController",
+        "method": "logIn",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/ViewProduct": {
+        "class": "UserPageController",
+        "method": "viewProduct",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/Profile": {
+        "class": "UserPageController",
+        "method": "profile",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/Checkout": {
+        "class": "UserPageController",
+        "method": "checkout",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/Search": {
+        "class": "UserPageController",
+        "method": "search",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    },
+    "/InvalidUrl": {
+        "class": "UserPageController",
+        "method": "invlidUrl",
+        "httpMethod": "GET",
+        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+    }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | TimeStore</title>
+    <title>404 - Page Not Found</title>
 
     <style>
         * {
@@ -115,7 +115,7 @@
     <main class="error-container">
 
         <div class="brand">
-            TimeStore
+            
         </div>
 
         <div class="error-code">

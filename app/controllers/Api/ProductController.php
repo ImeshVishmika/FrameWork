@@ -25,7 +25,7 @@ class productController
         $this->product->update($_POST,$_FILES);
     }
 
-    #[Route('/load')]
+    #[Route('/load','POST')]
     public  function loadProducts()
     {
         $this->product->load($_POST);

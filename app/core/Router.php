@@ -1,8 +1,7 @@
 <?php
 
-require_once "../app/middleware/auth.php";
-require_once BASE . "/app/mapping/Route.php";
-
+require_once BASE."/app/middleware/auth.php";
+require_once BASE."/app/mapping/Route.php";
 
 class Router
 {
@@ -12,36 +11,26 @@ class Router
         $reqUri = $_SERVER["REQUEST_URI"];
         $reqMethod = $_SERVER["REQUEST_METHOD"];
 
-        $classes = json_decode(file_get_contents(BASE . "\app\core\\routes.json"), true);
+        // $routes = json_decode(file_get_contents(routeJsonPath), true);
 
-        if (!isset($classes[$reqUri])) {
-            require_once BASE . "/app/views/User/invliadUrl.php";
-            return;
+        if (!isset(ROUTES[$reqUri])) {
+            require_once redirectPath;
+            exit();
         }
 
-        $path = $classes[$reqUri];
-        require_once $path;
-
-        $class = pathinfo($path)['filename'];
-
-        $controllerReflectionClass = new ReflectionClass($class);
-        $controllerMethods = $controllerReflectionClass->getMethods();
-        $controllerMethod = null;
-
-        foreach ($controllerMethods as $method) {
-            $attributes = $method->getAttributes(Route::class);
-
-            foreach ($attributes as $attribute) {
-
-                $attributeInstance = $attribute->newInstance();
-
-                if ($attributeInstance->path == strrchr($reqUri, "/")) {
-                    $controllerMethod = $method;
-                    break;
-                };
-            }
+        if(isset(ROUTES[$reqUri]) && ROUTES[$reqUri]["httpMethod"]!=$reqMethod){
+            http_response_code(405);
+            exit();
         }
 
-        $controllerMethod->invoke($controllerReflectionClass->newInstance());
+        $route = ROUTES[$reqUri];
+        require_once $route["path"];
+
+        $controllerReflectionClass = new ReflectionClass($route["class"]);
+
+        $controllerMethod = $controllerReflectionClass->getMethod($route["method"]);
+        $controllerInstance = $controllerReflectionClass->newInstance();
+        //$controllerMethod->invoke($controllerInstance);
+        
     }
 }

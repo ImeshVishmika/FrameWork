@@ -4,9 +4,10 @@ require_once(BASE . "/config/connection.php");
 class ImgController
 {
     #[Route('/Img')]
+    #[PathParam('id')]
     public function loadImg()
     {
-        $model_id = $_GET["id"];
+        $model_id = 115;
 
         $img_rs = Database::search("SELECT `img_path` FROM `product_img` WHERE `model_id`='" . $model_id . "' ");
         $img_data = $img_rs->fetch_assoc();
