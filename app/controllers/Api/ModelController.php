@@ -2,6 +2,7 @@
 require_once(BASE."/app/model/product.php");
 require_once(BASE."/app/mapping/Route.php");
 
+#[Route('/api/model')]
 class ModelController
 {
     private product $product;
@@ -11,6 +12,7 @@ class ModelController
         $this->product = new product();
     }
 
+    #[Route('/load')]
     public  function loadModels()
     {
         $this->product->models($_POST);

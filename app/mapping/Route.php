@@ -1,6 +1,6 @@
 <?php
 
-#[Attribute(Attribute::TARGET_METHOD| Attribute::TARGET_CLASS)]
+#[Attribute(Attribute::TARGET_METHOD|Attribute::TARGET_CLASS)]
 class Route{
 
     public String $path;

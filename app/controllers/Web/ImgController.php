@@ -3,6 +3,7 @@ require_once(BASE . "/config/connection.php");
 
 class ImgController
 {
+    #[Route('/Img')]
     public function loadImg()
     {
         $model_id = $_GET["id"];

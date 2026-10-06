@@ -4,7 +4,7 @@ require_once(BASE."/app/model/product.php");
 require_once(BASE."/app/mapping/Route.php");
 
 
-#[Route('/product')]
+#[Route('/api/product')]
 class productController
 {
     private product $product;

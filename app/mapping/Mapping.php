@@ -1,45 +1,60 @@
 <?php
+require_once BASE . "/app/mapping/Route.php";
 
 class Mapping
 {
 
-    private static $controller = "controllers";
+    private static String $controllerPath = BASE . "/app/controllers";
 
-    public static function config() {
-        self::definePackages();
-        self::regControllers();
-    }
-
-    
-    private static function definePackages()
+    public static function config()
     {
-        define("controllers", self::$controller);
-    }
+        $output = shell_exec('git status-u '.self::$controllerPath);
 
-    private static function regControllers(){
+        if ($output == null) {
+            return;
+        }
 
-        $output = shell_exec('git -C '.BASE."/app/".self::$controller.' status --short');
-        echo $output;
-
-        $controllerList = new RecursiveDirectoryIterator(BASE."/app/".self::$controller,RecursiveDirectoryIterator::SKIP_DOTS);
-        $iterator = new RecursiveIteratorIterator($controllerList);
+        $controllerPathList = new RecursiveDirectoryIterator(self::$controllerPath, RecursiveDirectoryIterator::SKIP_DOTS);
+        $iterator = new RecursiveIteratorIterator($controllerPathList);
 
         $paths = [];
 
-        foreach($iterator as $file){
-            $fileName = str_replace(".php","",$file->getFilename());
-            $paths[$fileName]=$file->getPathname();
+        foreach ($iterator as $file) {
+            $fileName = str_replace(".php", "", $file->getFilename());
+
+            require_once $file->getPathname();
+
+            $reflectionClass = new ReflectionClass($fileName);
+            $classAttributes = $reflectionClass->getAttributes(Route::class);
+            $classRouteInstance = $classAttributes !=null
+            ? $classAttributes[0]->newInstance()
+            : new Route("");
+
+            $classMethods = $reflectionClass->getMethods();
+
+            foreach($classMethods as $classMethod){
+                $methodAttributes = $classMethod->getAttributes(Route::class);
+
+                if($methodAttributes==null){
+                    continue;
+                }
+
+                $methodRouteInstance = $methodAttributes[0]->newInstance();
+                $paths[$classRouteInstance->path.$methodRouteInstance->path] = $file->getPathname();
+            }
+            
         }
 
-        file_put_contents("../app/core/controllerList.json",
-        json_encode($paths,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES),
-        LOCK_EX);
-
+        file_put_contents(
+            "../app/core/routes.json",
+            json_encode($paths, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
+            LOCK_EX
+        );
     }
 
-    public static function setController(String $controller)
+
+    public static function setController(String $controllerPath)
     {
-        self::$controller = $controller;
+        self::$controllerPath = $controllerPath;
     }
-
 }

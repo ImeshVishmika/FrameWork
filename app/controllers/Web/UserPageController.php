@@ -4,6 +4,7 @@ require_once BASE."/app/mapping/Route.php";
 
 class UserPageController
 {
+    
     #[Route('/')]
     public function index()
     {
@@ -39,6 +40,11 @@ class UserPageController
     public function search()
     {
         require_once(BASE . "/app/views/User/search.php");
+    }
+
+    #[Route('/InvalidUrl')]
+    public function invlidUrl(){
+        require_once(BASE."/app/views/User/invlidUrl.php");
     }
 
 }
