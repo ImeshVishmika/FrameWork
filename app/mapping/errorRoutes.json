@@ -1,4 +1,8 @@
 {
+    "403": "D:\\Desktop\\timestore/app/views/error\\403.php",
+    "404": "D:\\Desktop\\timestore/app/views/error\\404.php",
+    "405": "D:\\Desktop\\timestore/app/views/error\\405.php",
+    "500": "D:\\Desktop\\timestore/app/views/error\\500.php",
     "Forbidden": "D:\\Desktop\\timestore/app/views/error\\Forbidden.php",
     "Internal_Server_Error": "D:\\Desktop\\timestore/app/views/error\\Internal_Server_Error.php",
     "Method_Not_Allowed": "D:\\Desktop\\timestore/app/views/error\\Method_Not_Allowed.php",
