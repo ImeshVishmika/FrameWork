@@ -1,7 +1,8 @@
 <?php
 
 require_once(BASE."/app/model/product.php");
-require_once(BASE."/app/mapping/Route.php");
+require_once(BASE."/app/attributes/Route.php");
+require_once(BASE."/app/attributes/Allowed.php");
 
 
 #[Route('/api/product')]
@@ -14,6 +15,7 @@ class productController
     }
  
     #[Route('/add')]
+    #[Allowed('admin')]
     public function addProduct()
     {
         $this->product->add($_POST,$_FILES);

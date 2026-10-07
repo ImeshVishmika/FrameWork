@@ -1,6 +1,6 @@
 <?php
 require_once(BASE."/app/model/product.php");
-require_once(BASE."/app/mapping/Route.php");
+require_once(BASE."/app/attributes/Route.php");
 
 #[Route('/api/model')]
 class ModelController

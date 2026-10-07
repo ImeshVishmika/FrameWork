@@ -11,7 +11,8 @@
         "httpMethod": "GET",
         "class": "ProductController",
         "method": "addProduct",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php",
+        "allowed": "admin"
     },
     "/api/product/update": {
         "path": "/update",
@@ -62,7 +63,8 @@
         "httpMethod": "GET",
         "class": "UserPageController",
         "method": "profile",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
+        "allowed": "user,admin"
     },
     "/Checkout": {
         "path": "/Checkout",

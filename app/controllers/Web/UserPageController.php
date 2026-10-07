@@ -1,5 +1,5 @@
 <?php
-require_once BASE."/app/mapping/Route.php";
+require_once(BASE."/app/attributes/Route.php");
 
 
 class UserPageController
@@ -26,6 +26,7 @@ class UserPageController
     }
 
     #[Route('/Profile')]
+    #[Allowed('user,admin')]
     public function profile()
     {
         require_once(BASE . "/app/views/User/profile.php");
