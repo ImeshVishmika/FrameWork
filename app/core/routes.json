@@ -1,74 +1,88 @@
 {
     "/api/model/load": {
+        "path": "/load",
+        "httpMethod": "POST",
         "class": "ModelController",
         "method": "loadModels",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ModelController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ModelController.php"
     },
     "/api/product/add": {
+        "path": "/add",
+        "httpMethod": "GET",
         "class": "ProductController",
         "method": "addProduct",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
     },
     "/api/product/update": {
+        "path": "/update",
+        "httpMethod": "GET",
         "class": "ProductController",
         "method": "updateProduct",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
     },
     "/api/product/load": {
+        "path": "/load",
+        "httpMethod": "POST",
         "class": "ProductController",
         "method": "loadProducts",
-        "httpMethod": "POST",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
     },
     "/Img": {
+        "path": "/Img",
+        "httpMethod": "GET",
         "class": "ImgController",
         "method": "loadImg",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\ImgController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\ImgController.php",
+        "param": "id"
     },
     "/": {
+        "path": "/",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "index",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     },
     "/logIn": {
+        "path": "/logIn",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "logIn",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     },
-    "/ViewProduct": {
+    "/viewProduct": {
+        "path": "/viewProduct",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "viewProduct",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
+        "param": "id"
     },
     "/Profile": {
+        "path": "/Profile",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "profile",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     },
     "/Checkout": {
+        "path": "/Checkout",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "checkout",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     },
-    "/Search": {
+    "/search": {
+        "path": "/search",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "search",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     },
     "/InvalidUrl": {
+        "path": "/InvalidUrl",
+        "httpMethod": "GET",
         "class": "UserPageController",
         "method": "invlidUrl",
-        "httpMethod": "GET",
-        "path": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     }
 }

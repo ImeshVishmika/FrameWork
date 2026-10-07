@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>500 - Internal Server Error | TimeStore</title>
 
     <style>
         * {
@@ -115,20 +115,20 @@
     <main class="error-container">
 
         <div class="brand">
-            
+            TimeStore
         </div>
 
         <div class="error-code">
-            404
+            500
         </div>
 
         <h1 class="error-title">
-            Page not found
+            Something went wrong
         </h1>
 
         <p class="error-message">
-            The page you're looking for doesn't exist or may have been moved.
-            Check the URL or return to the TimeStore homepage.
+            We couldn't complete your request because something went wrong
+            on our side. Please try again later.
         </p>
 
         <div class="actions">
@@ -136,8 +136,8 @@
                 Back to Home
             </a>
 
-            <a href="javascript:history.back()" class="btn btn-secondary">
-                Go Back
+            <a href="javascript:location.reload()" class="btn btn-secondary">
+                Try Again
             </a>
         </div>
 
@@ -145,3 +145,4 @@
 
 </body>
 </html>
+
