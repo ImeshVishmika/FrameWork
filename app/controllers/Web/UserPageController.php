@@ -17,7 +17,8 @@ class UserPageController
         require_once(BASE . "/app/views/User/signin.php");
     }
 
-    #[Route('/ViewProduct')]
+    #[Route('/viewProduct')]
+    #[PathParam('id')]
     public function viewProduct()
     {
         session_start();
@@ -36,7 +37,7 @@ class UserPageController
         require_once(BASE . "/app/views/User/checkout.php");
     }
 
-    #[Route('/Search')]
+    #[Route('/search')]
     public function search()
     {
         require_once(BASE . "/app/views/User/search.php");

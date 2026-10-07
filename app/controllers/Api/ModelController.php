@@ -12,7 +12,7 @@ class ModelController
         $this->product = new product();
     }
 
-    #[Route('/load')]
+    #[Route('/load','POST')]
     public  function loadModels()
     {
         $this->product->models($_POST);

@@ -7,7 +7,7 @@ class ImgController
     #[PathParam('id')]
     public function loadImg()
     {
-        $model_id = 115;
+        $model_id = $_GET["id"];
 
         $img_rs = Database::search("SELECT `img_path` FROM `product_img` WHERE `model_id`='" . $model_id . "' ");
         $img_data = $img_rs->fetch_assoc();
