@@ -28,8 +28,6 @@
 <body class="bg-light">
 
 
-    <?php include "header.php";?>
-
     <div class="container my-4">
         <div class="bg-black text-white rounded-4 p-5 overflow-hidden position-relative">
             <div class="row align-items-center">

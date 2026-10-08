@@ -14,10 +14,10 @@ class Mapping
     {
         $output = shell_exec('git status ');
 
-        if ($output == null) {
-            define("ROUTES", json_decode(file_get_contents(self::$mappDir."/routes.json"), true));
-            return;
-        }
+        // if ($output == null) {
+        //     define("ROUTES", json_decode(file_get_contents(self::$mappDir."/routes.json"), true));
+        //     return;
+        // }
 
         $controllerDirList = new RecursiveDirectoryIterator(self::$controllerDir, RecursiveDirectoryIterator::SKIP_DOTS);
         $iterator = new RecursiveIteratorIterator($controllerDirList);

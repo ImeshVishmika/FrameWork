@@ -1,7 +1,7 @@
 <?php
 require_once (BASE."/app/model/customers.php");
 
-
+#[Route('/api/user','POST')]
 class userController{
     private customers $customers;
 
@@ -9,8 +9,6 @@ class userController{
     {
         $this->customers = new customers();
     }
-
-    
 
     public function loadCustomers(){
         $this->customers->loadUsers($_POST);
@@ -20,6 +18,7 @@ class userController{
         $this->customers->loadUserDetails($_POST);
     }
 
+    #[Route('/logIn','POST')]
     public function logIn(){
         $this->customers->logIn($_POST);
     }

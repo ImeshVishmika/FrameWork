@@ -14,34 +14,16 @@ class productController
         $this->product = new product();
     }
  
-    #[Route('/add')]
-    #[Allowed('admin')]
-    public function addProduct()
-    {
-        $this->product->add($_POST,$_FILES);
-    }
-
-    #[Route('/update')]
-    public  function updateProduct()
-    {
-        $this->product->update($_POST,$_FILES);
-    }
-
     #[Route('/load','POST')]
     public  function loadProducts()
     {
-        $this->product->load($_POST);
+        $this->product->load();
     }
 
 
     public  function loadModels()
     {
-        $this->product->models($_POST);
+        $this->product->models();
     }
 
-    public function revenueData()
-    {
-        $revenueData=$this->product->revenueData($_POST);
-        echo json_encode($revenueData);
-    }
 }

@@ -15,12 +15,6 @@ class ModelController
     #[Route('/load','POST')]
     public  function loadModels()
     {
-        $this->product->models($_POST);
-    }
-
-    public function revenueData()
-    {
-        $revenueData = $this->product->revenueData($_POST);
-        echo json_encode($revenueData);
+        $this->product->models();
     }
 }

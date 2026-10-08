@@ -2,73 +2,67 @@
 
 // require_once(__DIR__ . '/.env');
 
-class Database{
+class Database
+{
 
     public static $connection;
     private static $config = null;
 
-    private static function getConfig() {
+    private static function getConfig()
+    {
         if (self::$config === null) {
             self::$config = [
-                'host' => getenv('MYSQLHOST') ,
-                'user' => getenv('MYSQLUSER') ,
-                'pass' => getenv('MYSQL_ROOT_PASSWORD') ,
-                'name' => getenv('MYSQL_DATABASE') ,
-                'port' => getenv('MYSQLPORT') 
+                'host' => getenv('MYSQLHOST'),
+                'user' => getenv('MYSQLUSER'),
+                'pass' => getenv('MYSQL_ROOT_PASSWORD'),
+                'name' => getenv('MYSQL_DATABASE'),
+                'port' => getenv('MYSQLPORT')
             ];
         }
         return self::$config;
     }
 
-    public static function setUpconnection(){
-        if(!isset(self::$connection)){
+    public static function setUpconnection()
+    {
+        if (!isset(self::$connection)) {
             $config = self::getConfig();
-            
-            // self::$connection = new mysqli(
-            //     $config['host'],
-            //     $config['user'],
-            //     $config['pass'],
-            //     $config['name'],
-            //     $config['port']
-            // );
 
-             self::$connection = new mysqli(
+            self::$connection = new mysqli(
                 "localhost",
                 "root",
                 "Imesh#14681",
                 "timestore",
                 3306
             );
-            
+
             // Check connection
             if (self::$connection->connect_error) {
                 error_log("Database connection failed: " . self::$connection->connect_error);
                 // Don't expose connection details to users
                 throw new Exception("Database connection failed. Please try again later.");
             }
-            
+
             // Set charset to prevent encoding issues
             self::$connection->set_charset("utf8mb4");
         }
     }
 
-    public static function iud($q){
+    public static function iud($q)
+    {
         self::setUpconnection();
         return self::$connection->query($q);
     }
 
-    public static function search($q){
+    public static function search($q)
+    {
         self::setUpconnection();
-        $resultset=self::$connection->query($q);
+        $resultset = self::$connection->query($q);
         return $resultset;
     }
 
-    public static function escape($value){
+    public static function escape($value)
+    {
         self::setUpconnection();
         return self::$connection->real_escape_string($value);
     }
-
-
 }
-
-?>

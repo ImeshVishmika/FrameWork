@@ -4,36 +4,28 @@
         "httpMethod": "POST",
         "class": "ModelController",
         "method": "loadModels",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ModelController.php"
-    },
-    "/api/product/add": {
-        "path": "/add",
-        "httpMethod": "GET",
-        "class": "ProductController",
-        "method": "addProduct",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php",
-        "allowed": "admin"
-    },
-    "/api/product/update": {
-        "path": "/update",
-        "httpMethod": "GET",
-        "class": "ProductController",
-        "method": "updateProduct",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Api\\ModelController.php"
     },
     "/api/product/load": {
         "path": "/load",
         "httpMethod": "POST",
         "class": "ProductController",
         "method": "loadProducts",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Api\\ProductController.php"
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Api\\ProductController.php"
+    },
+    "/api/user/logIn": {
+        "path": "/logIn",
+        "httpMethod": "POST",
+        "class": "UserController",
+        "method": "logIn",
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Api\\UserController.php"
     },
     "/Img": {
         "path": "/Img",
         "httpMethod": "GET",
         "class": "ImgController",
         "method": "loadImg",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\ImgController.php",
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Web\\ImgController.php",
         "param": "id"
     },
     "/": {
@@ -41,50 +33,21 @@
         "httpMethod": "GET",
         "class": "UserPageController",
         "method": "index",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Web\\UserPageController.php"
     },
     "/logIn": {
         "path": "/logIn",
         "httpMethod": "GET",
         "class": "UserPageController",
         "method": "logIn",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Web\\UserPageController.php"
     },
     "/viewProduct": {
         "path": "/viewProduct",
         "httpMethod": "GET",
         "class": "UserPageController",
         "method": "viewProduct",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
+        "Filepath": "D:\\Desktop\\FrameWork/app/controllers\\Web\\UserPageController.php",
         "param": "id"
-    },
-    "/Profile": {
-        "path": "/Profile",
-        "httpMethod": "GET",
-        "class": "UserPageController",
-        "method": "profile",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php",
-        "allowed": "user,admin"
-    },
-    "/Checkout": {
-        "path": "/Checkout",
-        "httpMethod": "GET",
-        "class": "UserPageController",
-        "method": "checkout",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
-    },
-    "/search": {
-        "path": "/search",
-        "httpMethod": "GET",
-        "class": "UserPageController",
-        "method": "search",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
-    },
-    "/InvalidUrl": {
-        "path": "/InvalidUrl",
-        "httpMethod": "GET",
-        "class": "UserPageController",
-        "method": "invlidUrl",
-        "Filepath": "D:\\Desktop\\timestore/app/controllers\\Web\\UserPageController.php"
     }
 }

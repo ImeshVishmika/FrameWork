@@ -1,0 +1,90 @@
+{
+    "page": 1,
+    "page_size": 20,
+    "models": [
+        {
+            "product_id": "2",
+            "product_name": "Cosmograph Daytona",
+            "brand": "Rolex",
+            "brand_id": "3",
+            "price": "1500",
+            "qty": "272",
+            "order_qty": "0",
+            "revenue": "0",
+            "added_time": "2026-02-14 12:25:23",
+            "img_path": "/Img/94"
+        },
+        {
+            "product_id": "18",
+            "product_name": "Omega Seamaster",
+            "brand": "Omega",
+            "brand_id": "10",
+            "price": "1000",
+            "qty": "77",
+            "order_qty": "0",
+            "revenue": "0",
+            "added_time": "2026-02-14 10:36:27",
+            "img_path": "/Img/122"
+        },
+        {
+            "product_id": "16",
+            "product_name": "SSH1",
+            "brand": "Seiko",
+            "brand_id": "2",
+            "price": "1300",
+            "qty": "108",
+            "order_qty": "26",
+            "revenue": "33800",
+            "added_time": "2026-02-13 17:02:58",
+            "img_path": "/Img/115"
+        },
+        {
+            "product_id": "7",
+            "product_name": "NB6060",
+            "brand": "Citizen ",
+            "brand_id": "8",
+            "price": "1234",
+            "qty": "108",
+            "order_qty": "8",
+            "revenue": "9872",
+            "added_time": "2026-02-13 16:45:21",
+            "img_path": "/Img/103"
+        },
+        {
+            "product_id": "11",
+            "product_name": "NB6062",
+            "brand": "Citizen ",
+            "brand_id": "8",
+            "price": "1542",
+            "qty": "44",
+            "order_qty": "0",
+            "revenue": "0",
+            "added_time": "2026-02-13 15:56:21",
+            "img_path": "/Img/110"
+        },
+        {
+            "product_id": "5",
+            "product_name": "NB6030",
+            "brand": "Citizen ",
+            "brand_id": "8",
+            "price": "1542",
+            "qty": "49",
+            "order_qty": "0",
+            "revenue": "0",
+            "added_time": "2026-02-13 15:54:13",
+            "img_path": "/Img/108"
+        },
+        {
+            "product_id": "1",
+            "product_name": "MRG-B2000",
+            "brand": "G-Shock",
+            "brand_id": "1",
+            "price": "1300",
+            "qty": "238",
+            "order_qty": "0",
+            "revenue": "0",
+            "added_time": "2025-12-03 13:01:32",
+            "img_path": "/Img/15"
+        }
+    ]
+}
