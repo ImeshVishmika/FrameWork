@@ -1,498 +1,164 @@
-<p align="center">
-  <h1 align="center">🛒 TimeStore</h1>
-  <p align="center">
-    A custom PHP e-commerce platform built with MVC architecture, a front controller, and a custom routing system.
-  </p>
-</p>
+# FrameWork 🚀
 
-<p align="center">
+### A lightweight PHP framework built from the ground up
 
-![PHP](https://img.shields.io/badge/PHP-8.x-blue)
-![Architecture](https://img.shields.io/badge/Architecture-MVC-green)
-![Routing](https://img.shields.io/badge/Routing-Custom-orange)
-![Payments](https://img.shields.io/badge/Payments-PayHere-purple)
-![Database](https://img.shields.io/badge/Database-MySQL-red)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+**FrameWork** is a custom PHP framework project focused on understanding and implementing the core mechanisms behind modern web applications. It explores how HTTP requests can be mapped to controllers and actions through a structured routing system, with an emphasis on modularity, reflection, and PHP's native language features.
 
-</p>
+Rather than relying entirely on an existing framework, this project provides an opportunity to explore the engineering decisions that make a framework work internally.
 
----
+## ✨ Key Features
 
-# 🔗 Project Links
+* **Custom Routing System** — Organize incoming HTTP requests and map them to application controllers.
+* **HTTP Method Handling** — Structure route handling around HTTP request methods.
+* **Attribute-Based Routing** — Explore PHP attributes as a declarative way to associate route metadata with controller methods.
+* **Reflection-Based Discovery** — Investigate PHP Reflection APIs to inspect classes, methods, and attributes at runtime.
+* **Controller Mapping** — Separate controller discovery and route configuration from application entry-point logic.
+* **Centralized Request Handling** — Use a single application entry point to initialize the framework and process requests.
+* **Structured Error Handling** — Provide dedicated responses for common HTTP errors, including `403`, `404`, `405`, and `500`.
+* **Modular Architecture** — Keep routing, mapping, and controller responsibilities organized into separate components.
 
-- GitHub Repository: https://github.com/ImeshVishmika/timestore-php
-- Live Demo: https://timestore.imeshvishmika.me
 
----
+## 🛠️ Technology Stack
 
-# 📸 Screenshots
+* **PHP** — Core framework implementation
+* **PHP Reflection API** — Runtime inspection of classes and methods
+* **PHP Attributes** — Declarative route metadata
+* **HTTP** — Request methods and status codes
+* **JSON** — Potential configuration or mapping data, where implemented
+* **Git** — Version control and development workflow
 
-## Admin Panel
+## 🏗️ Architecture
 
-[![Admin Dashboard](doc/images/admin/AdminDashboard.png)](doc/images/admin/AdminDashboard.png)
-[![Customers](doc/images/admin/customers.png)](doc/images/admin/customers.png)
-[![Orders](doc/images/admin/orders.png)](doc/images/admin/orders.png)
-[![Products](doc/images/admin/products.png)](doc/images/admin/products.png)
-[![Messages](doc/images/admin/messages.png)](doc/images/admin/messages.png)
-[![Settings](doc/images/admin/settings.png)](doc/images/admin/settings.png)
-
-## Storefront
-
-[![Home Page](doc/images/user/Home.png)](doc/images/user/Home.png)
-[![Search Page](doc/images/user/searchPage.png)](doc/images/user/searchPage.png)
-[![Product Page](doc/images/user/ProductPage.png)](doc/images/user/ProductPage.png)
-[![](doc/images/user/ProductBuyWindow.png)](doc/images/user/ProductBuyWindow.png)
-[![Checkout Page](doc/images/user/checkoutPage.png)](doc/images/user/checkoutPage.png)
-[![](doc/images/user/checkoutPayhereWindow.png)](doc/images/user/checkoutPayhereWindow.png)
-[![](doc/images/user/Payheredetails.png)](doc/images/user/Payheredetails.png)
-[![](doc/images/user/PaymentSuccessWindow.png)](doc/images/user/PaymentSuccessWindow.png)
-
----
-
-# 📖 Project Overview
-
-**TimeStore** is a PHP-based e-commerce application built around a custom MVC flow with a front controller and route configuration in `Router.php`. The project uses direct controller-to-model access, server-side validation, session-based auth, and a MySQL schema for product, customer, cart, order, and address data.
-
-The application supports storefront browsing, product model management, user accounts, cart and wishlist operations, and admin-side dashboards for product and customer administration. The architecture is intentionally lightweight and code-driven rather than framework-based, which matches the project’s actual implementation and naming patterns.
-
----
-
-# ⭐ Features
-
-## 👤 User Features
-
-- Browse the product catalog and product variants
-- Search products by keyword and filter by product model data
-- Add and remove items from the cart
-- Save items in a watchlist
-- View purchase history and user profile details
-- Update personal address information
-- Place orders with the **PayHere sandbox payment gateway**
-- View and exchange messages with administrators
-
----
-
-## 🛠 Admin Features
-
-- Add and update product entries and model variants
-- Remove products and product records
-- View product revenue and sales statistics
-- Manage users and customer details
-- Review order records and order status
-- Manage brand and category records
-- Review message activity between users and admins
-
----
-
-# 🧰 Technology Stack
-
-| Layer | Implementation |
-|------|------|
-| Backend | PHP 8.x |
-| Architecture | MVC with a front controller |
-| Routing | Custom route map in `Router.php` |
-| Auth | Session-based role checks via middleware |
-| Data access | Model classes under `app/model` |
-| Database | MySQL |
-| Web server | Apache / PHP-FPM |
-| Reverse proxy | Nginx |
-| Payment | PayHere sandbox |
-| Front-end assets | Plain PHP views and static files under `public/assets` |
-
----
-
-# 🏗 System Architecture
-
-```mermaid
-flowchart TD
-
-A[Client Browser]:::client --> B[Nginx Reverse Proxy]:::infra
-B --> C[Apache Web Server]:::infra
-C --> D[PHP-FPM]:::infra
-D --> E[public/index.php Front Controller]:::app
-
-E --> F[Router]:::app
-F --> G[Middleware auth checks]:::security
-G --> H[Web Controllers / API Controllers]:::app
-H --> I[Model classes]:::app
-I --> J[(MySQL Database)]:::db
-
-classDef client fill:#4CAF50,color:#fff
-classDef infra fill:#FF9800,color:#fff
-classDef app fill:#2196F3,color:#fff
-classDef security fill:#F44336,color:#fff
-classDef db fill:#9C27B0,color:#fff
-```
----
-
-# 🔄 Request Lifecycle
+## Request Lifecycle
 
 ```mermaid
 sequenceDiagram
+    participant Client
+    participant Index as public/index.php
+    participant Router
+    participant Middleware
+    participant Controller
+    participant Model
+    participant DB as MySQL
 
-participant User
-participant Nginx
-participant Apache
-participant Router
-participant Middleware
-participant Controller
-participant Model
-participant Database
-
-User->>Nginx: HTTP request
-Nginx->>Apache: Forward request
-Apache->>Router: Dispatch through index.php
-
-Router->>Middleware: Check allowed roles
-Middleware-->>Router: Access granted or denied
-
-Router->>Controller: Resolve controller and action
-Controller->>Model: Execute query or business logic
-Model->>Database: Read or write data
-Database-->>Model: Result set
-Model-->>Controller: Prepared response
-Controller-->>User: JSON or HTML output
-```
----
-
-# 🗄 Database Design
-
-The database design below reflects the current MySQL schema in `doc/timestore.sql`. It contains 29 base tables and four read-only views: `invoice_data`, `model_data`, `order_data`, and `user_address_data`.
-
-```mermaid
-erDiagram
-    ADMIN {
-        varchar email PK
-        varchar password
-        varchar first_name
-        varchar last_name
-    }
-
-    BRAND {
-        int brand_id PK
-        varchar brand_name
-    }
-
-    PRODUCT {
-        int product_id PK
-        varchar product_name
-        int brand_id FK
-    }
-
-    PRODUCT_HAS_MODEL {
-        int model_id PK
-        varchar model
-        double price
-        int qty
-        datetime added_time
-        int product_id FK
-    }
-
-    GENDER {
-        int id PK
-        varchar gender
-    }
-
-    MODEL {
-        int model_id PK
-        datetime added_time
-        varchar model
-        double price
-        int product_id FK
-        int qty
-    }
-
-    CATEGORY {
-        int category_id PK
-        varchar category_name
-    }
-
-    PRODUCT_HAS_CATEGORY {
-        int product_id PK,FK
-        int category_category_id PK,FK
-        int category_id
-    }
-
-    PRODUCT_IMG {
-        varchar img_path PK
-        int model_id FK
-    }
-
-    USERS {
-        varchar fname
-        varchar lname
-        varchar password
-        varchar mobile
-        varchar email PK
-        int gender_id FK
-        int status FK
-        date joined_date
-    }
-
-    USER_ADDRESS {
-        varchar address_line1
-        varchar address_line2
-        int address_city_id FK
-        varchar users_email PK,FK
-    }
-
-    PROVINCES {
-        int province_id PK
-        varchar name_en
-        varchar name_si
-        varchar name_ta
-    }
-
-    DISTRICTS {
-        int district_id PK
-        int province_id FK
-        varchar district_en
-        varchar district_si
-        varchar district_ta
-    }
-
-    CITIES {
-        int city_id PK
-        int district_id FK
-        varchar city_en
-        varchar city_si
-        varchar city_ta
-        varchar sub_name_en
-        varchar sub_name_si
-        varchar sub_name_ta
-        varchar postcode
-        double latitude
-        double longitude
-    }
-
-    CART {
-        int cart_id PK
-        int product_id FK
-        int cart_qty
-        varchar users_email FK
-    }
-
-    BUY_NOW_CART {
-        varchar user_email FK
-        int model_id FK
-        int qty
-    }
-
-    WATCHLIST {
-        int watchlist_id PK
-        int product_id FK
-        varchar users_email FK
-    }
-
-    RATINGS {
-        varchar user_email PK,FK
-        int product_id PK,FK
-        varchar ratings
-        varchar comment
-    }
-
-    USER_HISTORY {
-        int id PK
-        varchar user_id FK
-        int product_id FK
-        datetime buy_datetime
-        int amount
-    }
-
-    DELIVERY_METHOD {
-        int id PK
-        varchar delivery_method
-        double price
-        varchar delivery_days
-    }
-
-    ORDER {
-        int order_id PK
-        varchar email FK
-        datetime ordered_date
-        int delivery_method FK
-        int order_status FK
-    }
-
-    ORDER_HAS_MODEL {
-        int order_id PK,FK
-        int model_id PK,FK
-        int qty
-    }
-
-    ORDER_STATUS {
-        int order_status_id PK
-        varchar status
-    }
-
-    INVOICE {
-        int invoice_id PK
-        int order_id
-        datetime invoice_date
-        varchar email FK
-        double delivery_fee
-    }
-
-    INVOICE_ITEMS {
-        int invoice_item_id PK
-        int order_id FK
-        int product_id
-        varchar product_name
-        double product_price
-        int qty
-        int invoice_id FK
-        varchar model_name
-        double model_price
-        int model_id FK
-    }
-
-    MESSAGES {
-        int message_id PK
-        int status
-        text message
-        varchar sender FK
-        text subject
-        timestamp date_time
-    }
-
-    MSG_STATUS {
-        int msg_status_id PK
-        varchar msg_status
-    }
-
-    USER_IMG {
-        varchar email PK,FK
-        text path
-    }
-
-    USER_STATUS {
-        int status_id PK
-        varchar status
-    }
-
-    BRAND ||--o{ PRODUCT : contains
-    PRODUCT ||--o{ PRODUCT_HAS_MODEL : has
-    PRODUCT ||--o{ MODEL : legacy_model
-    PRODUCT_HAS_MODEL ||--o{ PRODUCT_HAS_CATEGORY : classified_by
-    CATEGORY ||--o{ PRODUCT_HAS_CATEGORY : includes
-    PRODUCT_HAS_MODEL ||--o{ PRODUCT_IMG : has
-    GENDER ||--o{ USERS : defines
-    USERS ||--o{ CART : owns
-    PRODUCT_HAS_MODEL ||--o{ CART : added_to
-    USERS ||--o{ BUY_NOW_CART : buys_now
-    PRODUCT_HAS_MODEL ||--o{ BUY_NOW_CART : selected
-    USERS ||--o{ WATCHLIST : saves
-    PRODUCT_HAS_MODEL ||--o{ WATCHLIST : watched
-    USERS ||--o{ RATINGS : leaves
-    PRODUCT_HAS_MODEL ||--o{ RATINGS : rated
-    USERS ||--o| USER_ADDRESS : has
-    CITIES ||--o{ USER_ADDRESS : contains
-    PROVINCES ||--o{ DISTRICTS : contains
-    DISTRICTS ||--o{ CITIES : contains
-    USERS ||--o{ USER_HISTORY : purchases
-    PRODUCT_HAS_MODEL ||--o{ USER_HISTORY : purchased_as
-    USERS ||--o{ ORDER : places
-    DELIVERY_METHOD ||--o{ ORDER : uses
-    ORDER_STATUS ||--o{ ORDER : tracks
-    ORDER ||--o{ ORDER_HAS_MODEL : contains
-    PRODUCT_HAS_MODEL ||--o{ ORDER_HAS_MODEL : ordered
-    USERS ||--o{ INVOICE : billed
-    ORDER ||--o{ INVOICE_ITEMS : referenced_by
-    INVOICE ||--o{ INVOICE_ITEMS : contains
-    PRODUCT_HAS_MODEL ||--o{ INVOICE_ITEMS : invoiced
-    USERS ||--o{ MESSAGES : sends
-    USERS ||--o| USER_IMG : has
-    USER_STATUS ||--o{ USERS : controls
+    Client->>Index: HTTP request
+    Index->>Router: Dispatch
+    Router->>Middleware: Check allowed roles
+    Middleware-->>Router: Granted / denied
+    Router->>Controller: Resolve controller + action
+    Controller->>Model: Query / business logic
+    Model->>DB: Read / write
+    DB-->>Model: Result
+    Model-->>Controller: Data
+    Controller-->>Client: HTML or JSON
 ```
 
-Core schema tables:
 
-- Catalog: `brand`, `product`, `product_has_model`, `product_img`, `category`, `product_has_category`, and the legacy `model` table
-- Accounts: `admin`, `users`, `gender`, `user_status`, `user_img`, and `user_address`
-- Locations: `provinces`, `districts`, and `cities`
-- Shopping: `cart`, `buy_now_cart`, `watchlist`, and `ratings`
-- Orders: `order`, `order_has_model`, `order_status`, `delivery_method`, `invoice`, and `invoice_items`
-- Communication and history: `messages`, `msg_status`, and `user_history`
+### Core Components
 
-The schema declares foreign keys for the relationships shown in the diagram. `invoice.order_id` is associated with `order.order_id` by the application but is not declared as a foreign key in the dump. Likewise, `messages.status` is not linked to `msg_status`, and `invoice_items.product_id` is a stored product value without a declared foreign key.
+| Component   | Responsibility                                                     |
+| ----------- | ------------------------------------------------------------------ |
+| Entry Point | Bootstraps the application and initializes framework components.   |
+| Router      | Resolves incoming requests to the appropriate application handler. |
+| Mapping     | Organizes route and controller metadata for lookup.                |
+| Controllers | Contain application-specific request-handling logic.               |
+| Attributes  | Describe route metadata directly in PHP code, where supported.     |
+| Error Pages | Present appropriate responses when requests cannot be fulfilled.   |
+
+The exact responsibilities and request flow depend on the current implementation.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* PHP installed and available from your terminal
+* PHP's built-in development server
+* Git
+
+Check your PHP installation:
+
+```bash
+php -v
+```
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ImeshVishmika/FrameWork.git
+```
+
+Navigate into the project:
+
+```bash
+cd FrameWork
+```
+
+Inspect the project structure and identify the application's entry point and configuration requirements.
+
+The entry point is `index.php` and the project supports PHP's built-in development server, you can start it with:
+
+```bash
+php -S localhost:8000
+```
+
+Open http://localhost:8000 in your browser.
+
+If the framework requires URL rewriting or a specific public document root, configure the server accordingly. The command above is a development example, not a guarantee that every route will work without additional configuration.
+
+## 💡 Design Goals
+
+This project explores several important backend engineering concepts:
+
+* **Separation of concerns:** Keep routing, controller discovery, and application logic distinct.
+* **Runtime introspection:** Use reflection to examine PHP classes and their metadata.
+* **Declarative configuration:** Explore how attributes can make route definitions more closely associated with controller methods.
+* **Maintainability:** Organize framework components so individual responsibilities can evolve independently.
+* **HTTP correctness:** Distinguish between missing resources, unsupported methods, forbidden requests, and internal server errors.
+
+## 🧪 Development and Testing
+
+As the framework evolves, useful areas to test include:
+
+* Valid and invalid URL paths
+* Supported and unsupported HTTP methods
+* Controller and action resolution
+* Attribute discovery and reflection behavior
+* Missing controller files or classes
+* Correct HTTP status codes for error conditions
+* Unexpected exceptions during request processing
+
+These cases help validate not only whether a route works, but also whether the framework behaves predictably when something goes wrong.
+
+## 🗺️ Roadmap
+
+Potential areas for future development include:
+
+* [ ] More comprehensive automated tests
+* [ ] Route parameters and constraints
+* [ ] Middleware support
+* [ ] Request and response abstractions
+* [ ] Dependency injection
+* [ ] Improved exception handling and logging
+* [ ] Configuration and environment management
+* [ ] Composer-based autoloading and package distribution
+
+This roadmap represents possible improvements rather than a commitment that these features are already available.
+
+## 🎯 What This Project Demonstrates
+
+FrameWork is an exploration of backend framework engineering, including the relationship between HTTP requests, routing, PHP reflection, metadata discovery, and controller execution.
+
+Building these mechanisms directly provides a deeper understanding of the abstractions that established PHP frameworks provide and the trade-offs involved in designing reusable application infrastructure.
+
+## 👨‍💻 Author
+
+**Imesh Vishmika**
+
+* GitHub: [@ImeshVishmika](https://github.com/ImeshVishmika)
+* Repository: [FrameWork](https://github.com/ImeshVishmika/FrameWork)
 
 ---
 
-# 🔐 Security
-
-The project applies security checks at the routing layer before reaching controller logic. Route definitions in `Router.php` can specify required roles such as `admin` or `user`, and the auth middleware validates that session state before dispatch.
-
-Current implementation details:
-## Security
-
-### Authentication
-Session-based authentication.
-
-### Authorization
-Role-based middleware protects administrative routes.
-
-### CSRF
-State-changing requests require a CSRF token.
-
----
-
-# 📁 Project Structure
-
-```text
-timestore/
-├── app/
-│   ├── controllers/
-│   │   ├── Api/
-│   │   │   ├── BrandController.php
-│   │   │   ├── CartController.php
-│   │   │   ├── DeliveryMethodController.php
-│   │   │   ├── HistoryController.php
-│   │   │   ├── MessageController.php
-│   │   │   ├── OrderController.php
-│   │   │   ├── ProductController.php
-│   │   │   ├── SearchController.php
-│   │   │   ├── UserController.php
-│   │   │   └── WishlistController.php
-│   │   └── Web/
-│   │       ├── AdminPageController.php
-│   │       ├── ImgController.php
-│   │       └── UserPageController.php
-│   ├── core/
-│   │   ├── Router.php
-│   │   └── Validator.php
-│   ├── middleware/
-│   │   └── auth.php
-│   ├── model/
-│   │   ├── admin.php
-│   │   ├── brand.php
-│   │   ├── cart.php
-│   │   ├── customers.php
-│   │   ├── delivery.php
-│   │   ├── history.php
-│   │   ├── Img.php
-│   │   ├── messages.php
-│   │   ├── orders.php
-│   │   ├── product.php
-│   │   ├── search.php
-│   │   └── wishlist.php
-│   └── views/
-│       ├── Admin/
-│       └── User/
-├── config/
-│   ├── connection.php
-│   └── payhere.php
-├── public/
-│   ├── index.php
-│   ├── loadImg.php
-│   └── assets/
-│       ├── Script/
-│       └── style/
-├── media/
-│   ├── icons/
-│   ├── poster/
-│   ├── product/
-│   └── userprofile/
-├── README.md
-├── SECURITY_AUDIT_REPORT.md
-└── Dockerfile
-```
+*Built to explore the internals of PHP web frameworks and strengthen backend engineering fundamentals.*
